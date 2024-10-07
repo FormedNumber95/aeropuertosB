@@ -3,8 +3,11 @@ package es.aketzagonzalez.aeropuertosB;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import model.Persona;
 
 public class tablaPersonasController {
 
@@ -12,7 +15,16 @@ public class tablaPersonasController {
     private Button btnAniadir;
 
     @FXML
-    private TableView<?> tablaPersonas;
+    private TableColumn<Persona, String> idTablaApellido;
+
+    @FXML
+    private TableColumn<Persona, Integer> idTablaEdad;
+
+    @FXML
+    private TableColumn<Persona, String> idTablaNombre;
+
+    @FXML
+    private TableView<Persona> tablaPersonas;
 
     @FXML
     private TextField txtApellidos;
@@ -28,7 +40,8 @@ public class tablaPersonasController {
     	String error="";
     	String nombre=txtNombre.getText();
     	String apellidos=txtApellidos.getText();
-    	int edad;
+    	int edad=-1;
+    	boolean existe=false;
     	if(txtNombre.getText().isEmpty()) {
     		error+="El campo nombre es obligatorio\n";
     	}
@@ -49,7 +62,22 @@ public class tablaPersonasController {
 	    		error+="La edad debe ser superior a 0\n";
 	    	}
     	}
+    	Persona p=new Persona(nombre, apellidos, edad);
+    	for(Persona per:tablaPersonas.getItems()){
+    		if(per.equals(p)) {
+    			existe=true;
+    		}
+    	}
+    	if(!existe) {
+    		tablaPersonas.getItems().add(p);
+    	}
     	
+    }
+    @FXML
+    private void initialize() {
+    	idTablaNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+    	idTablaApellido.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
+    	idTablaEdad.setCellValueFactory(new PropertyValueFactory<>("edad"));
     }
 
 }

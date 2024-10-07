@@ -30,9 +30,9 @@
       </VBox>
       <TableView fx:id="tablaPersonas" prefWidth="472.0">
         <columns>
-          <TableColumn prefWidth="147.0" text="Nombre" />
-          <TableColumn minWidth="0.0" prefWidth="174.0" text="Apellidos" />
-            <TableColumn minWidth="0.0" prefWidth="150.0" text="Edad" />
+          <TableColumn fx:id="idTablaNombre" editable="false" prefWidth="147.0" text="Nombre" />
+          <TableColumn fx:id="idTablaApellido" editable="false" minWidth="0.0" prefWidth="174.0" text="Apellidos" />
+            <TableColumn fx:id="idTablaEdad" editable="false" minWidth="0.0" prefWidth="150.0" text="Edad" />
         </columns>
       </TableView>
    </children>
