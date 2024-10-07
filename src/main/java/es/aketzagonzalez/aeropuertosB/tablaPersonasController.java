@@ -2,6 +2,8 @@ package es.aketzagonzalez.aeropuertosB;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -68,11 +70,26 @@ public class tablaPersonasController {
     			existe=true;
     		}
     	}
-    	if(!existe) {
+    	Alert al=new Alert(AlertType.INFORMATION);
+    	al.setHeaderText(null);
+    	if(!existe&&error.equals("")) {
     		tablaPersonas.getItems().add(p);
     	}
     	
+    	if(error.equals("")&&!existe) {
+    		al.setContentText("Persona añadida correctamente");
+    	}else {
+    		if(error.equals("")){
+    			al.setAlertType(AlertType.WARNING);
+    			error="La persona ya estaba en la lista";
+    		}else {
+    			al.setAlertType(AlertType.ERROR);
+    		}
+    		al.setContentText(error);
+    	}
+    	al.showAndWait();
     }
+    
     @FXML
     private void initialize() {
     	idTablaNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));

@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -15,7 +16,9 @@ public class MainApp extends Application {
     @Override
     public void start(@SuppressWarnings("exports") Stage s) throws IOException {
         stage=s;
-        setRoot("tablaPersonas","Personas");
+		Image imagen=new Image(getClass().getResource("/imagenes/clockmon.jpeg").toString());
+        stage.getIcons().add(imagen);
+		setRoot("tablaPersonas","Personas");
     }
 
     static void setRoot(String fxml) throws IOException {
