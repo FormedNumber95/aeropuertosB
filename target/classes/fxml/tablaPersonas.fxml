@@ -9,11 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
- minHeight="-Infinity" minWidth="-Infinity"
-  xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
-  fx:controller="es.aketzagonzalez.aeropuertosB.tablaPersonasController">
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="es.aketzagonzalez.aeropuertosB.tablaPersonasController">
    <children>
       <VBox prefHeight="200.0" spacing="10.0">
          <padding>

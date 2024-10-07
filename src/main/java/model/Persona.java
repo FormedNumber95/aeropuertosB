@@ -1,12 +1,12 @@
-package es.aketzagonzalez.aeropuertosB;
+package model;
 
 import java.util.Objects;
 
 public class Persona {
 
-	String nombre;
-	String apellidos;
-	int edad;
+	private String nombre;
+	private String apellidos;
+	private int edad;
 	
 	public Persona(String nombre,String apellidos,int edad){
 		this.nombre=nombre;
@@ -30,6 +30,18 @@ public class Persona {
 		Persona other = (Persona) obj;
 		return Objects.equals(apellidos, other.apellidos) && edad 
 				== other.edad && Objects.equals(nombre, other.nombre);
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	public int getEdad() {
+		return edad;
 	}
 	
 	
