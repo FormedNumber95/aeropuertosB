@@ -11,32 +11,49 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Persona;
 
+/**
+ * Clase tablaPersonasController.
+ */
 public class tablaPersonasController {
 
+    /** El boton aniadir. */
     @FXML
     private Button btnAniadir;
 
+    /** El id tabla apellido. */
     @FXML
     private TableColumn<Persona, String> idTablaApellido;
 
+    /** El id tabla edad. */
     @FXML
     private TableColumn<Persona, Integer> idTablaEdad;
 
+    /** El id tabla nombre. */
     @FXML
     private TableColumn<Persona, String> idTablaNombre;
 
+    /** La tabla personas. */
     @FXML
     private TableView<Persona> tablaPersonas;
 
+    /** El txt apellidos. */
     @FXML
     private TextField txtApellidos;
 
+    /** El txt edad. */
     @FXML
     private TextField txtEdad;
 
+    /** El txt nombre. */
     @FXML
     private TextField txtNombre;
 
+    /**
+     * Aniadir persona validando que todos los campos sean validos y mostrando 
+     * el mensaje adecuado en cada caso.
+     *
+     * @param event the event
+     */
     @FXML
     void aniadirPersona(ActionEvent event) {
     	String error="";
@@ -90,6 +107,9 @@ public class tablaPersonasController {
     	al.showAndWait();
     }
     
+    /**
+     * Inicializa el valor de las celdas.
+     */
     @FXML
     private void initialize() {
     	idTablaNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
